@@ -1,6 +1,6 @@
-version: 1.6.4.{build}
+version: 1.6.5.{build}
 environment:
-  my_version: 1.6.4
+  my_version: 1.6.5
   my_secret:
     secure: vbPRaZLQYpGPr4BrZZ4p6TofpSZMud+FKtlpqjgO8aA=
 skip_branch_with_pr: true
@@ -12,10 +12,6 @@ install:
 - cmd: nuget restore
 - secure-file\tools\secure-file -decrypt "c:\projects\AutoUpdater.NET\ZipExtractor\ZipExtractor.snk.enc" -secret %my_secret%
 - secure-file\tools\secure-file -decrypt "c:\projects\AutoUpdater.NET\AutoUpdater.NET\AutoUpdater.NET.snk.enc" -secret %my_secret%
-- msbuild "c:\projects\AutoUpdater.NET\ZipExtractor\ZipExtractor.csproj" /p:TargetFramework=net20;Configuration=Release /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
-- msbuild "c:\projects\AutoUpdater.NET\AutoUpdater.NET\AutoUpdater.NET.csproj" /p:TargetFramework=net20;Configuration=Release /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
-- msbuild "c:\projects\AutoUpdater.NET\ZipExtractor\ZipExtractor.csproj" /p:TargetFramework=net35;Configuration=Release /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
-- msbuild "c:\projects\AutoUpdater.NET\AutoUpdater.NET\AutoUpdater.NET.csproj" /p:TargetFramework=net35;Configuration=Release /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 - msbuild "c:\projects\AutoUpdater.NET\ZipExtractor\ZipExtractor.csproj" /p:TargetFramework=net40;Configuration=Release /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 - msbuild "c:\projects\AutoUpdater.NET\AutoUpdater.NET\AutoUpdater.NET.csproj" /p:TargetFramework=net40;Configuration=Release /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 - msbuild "c:\projects\AutoUpdater.NET\ZipExtractor\ZipExtractor.csproj" /p:TargetFramework=net45;Configuration=Release /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
