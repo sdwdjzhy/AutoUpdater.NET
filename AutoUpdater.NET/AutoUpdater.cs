@@ -245,6 +245,14 @@ namespace AutoUpdaterDotNET
         }
 
         /// <summary>
+        /// clean remind later timer for check update always
+        /// </summary>
+        public static void ClearTimer()
+        {
+            _remindLaterTimer = null;
+        }
+
+        /// <summary>
         ///     Start checking for new version of application and display a dialog to the user if update is available.
         /// </summary>
         /// <param name="appCast">URL of the xml file that contains information about latest version of the application.</param>
